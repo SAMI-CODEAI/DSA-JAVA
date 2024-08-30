@@ -1,23 +1,27 @@
 package lab.week1;
 import java.util.Scanner;
 import java.lang.Math;
-public class NumberPower
-{
-    public static long powerOfReverse(int n)
-    {
-        int rev = 0;
-        while (n > 0) {
-            rev = rev * 10 + n % 10;
-            n /= 10;
 
-    }
-        return (Math.pow(double n,double rev))
-
-
-    public static void main(String[] args)
-    {
+public class NumberPower {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a number");
-        int n = sc.nextInt();
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        int rev = Reverse(num);
+        System.out.println(num);
+        System.out.println(rev);
+        long result = (long) Math.pow(num, rev);
+        System.out.println("Result: " + result);
+    }
+
+    public static int Reverse(int no) {
+        int rev = 0;
+        int n = no;
+        while (n > 0) {
+            int digit = n % 10;
+            rev = rev * 10 + digit;
+            n /= 10;
+        }
+        return rev;
     }
 }
