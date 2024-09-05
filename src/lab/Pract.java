@@ -1,38 +1,34 @@
 package lab;
+
 import java.util.Scanner;
-public class Pract {
+public class Pract{
+    static int MAX_SIZE=100;
+    static int lookup_table[] = new int[MAX_SIZE];
+
     public static void main(String[] args) {
-        // Create a Scanner object for input
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
 
-        // Prompt user to enter a number
-        System.out.print("Enter a number: ");
-        int number = scanner.nextInt();
+        int pow = 1;
+        int co = 0;
+        do
+        {
+            System.out.println("pow: "+pow);
+            pow <<= 1;
+            System.out.println("pow<<=1"+(pow<<=1));
+            System.out.println("pow>>1"+(pow>>1));
+            System.out.println("table ele");
 
-        // Calculate the reverse of the number
-        int reversedNumber = reverseNumber(number);
-
-        // Compute the value of the number raised to its reversed value
-        long result = (long) Math.pow(number, reversedNumber);
-
-        // Display the result
-        System.out.println(number + " raised to the power of its reverse " + reversedNumber + " is: " + result);
-
-        // Close the scanner
-        scanner.close();
-    }
-
-    // Method to reverse the digits of a number
-    private static int reverseNumber(int number) {
-        int reversed = 0;
-        int originalNumber = number;
-
-        while (number > 0) {
-            int digit = number % 10;
-            reversed = reversed * 10 + digit;
-            number /= 10;
+            System.out.println((n + (pow >> 1)) / pow);
+            lookup_table[co] = (n + (pow >> 1)) / pow;
         }
+        while (lookup_table[co++] != 0);
 
-        return reversed;
+        // Print the lookup table
+        System.out.println("Lookup Table:");
+        for (int i = 0; i < co; i++) {
+            System.out.print(lookup_table[i] + " ");
+        }
+        System.out.println();
     }
 }
