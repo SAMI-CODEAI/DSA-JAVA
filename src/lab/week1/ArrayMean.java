@@ -21,14 +21,14 @@ public class ArrayMean
 //        System.out.println("The array is: " + Arrays.toString(numbers));
         System.out.println(Mean(numbers));
     }
-    public static double Mean(int[] numbers)
+    public static float Mean(int[] numbers)
     {
         int sum = 0;
         for (int i = 0; i < numbers.length; i++)
         {
             sum += numbers[i];
         }
-        double average = sum / numbers.length;
+        float average =(float) sum / numbers.length;
         return average;
     }
 
