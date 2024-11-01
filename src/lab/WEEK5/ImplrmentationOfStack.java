@@ -7,7 +7,6 @@ public class ImplrmentationOfStack {
     private int top;
     private int capacity;
 
-
     // Constructor to initialize stack
     ImplrmentationOfStack(int size) {
         arr = new int[size];
