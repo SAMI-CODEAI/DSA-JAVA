@@ -3,23 +3,31 @@ package lab.WEEK6;
 import java.util.Scanner;
 
 public class LinearQueue {
-    private static final int MAX = 10;
-    private static int[] queue = new int[MAX];
-    private static int front = -1;
-    private static int rear = -1;
+    private int[] queue;
+    private int front;
+    private int rear;
+    private int maxSize;
+
+    // Constructor to initialize queue with given size
+    public LinearQueue(int size) {
+        maxSize = size;
+        queue = new int[maxSize];
+        front = -1;
+        rear = -1;
+    }
 
     // Check if the queue is empty
-    public static boolean isEmpty() {
+    public boolean isEmpty() {
         return front == -1;
     }
 
     // Check if the queue is full
-    public static boolean isFull() {
-        return rear == MAX - 1;
+    public boolean isFull() {
+        return rear == maxSize - 1;
     }
 
     // Enqueue operation
-    public static void enqueue(int item) {
+    public void enqueue(int item) {
         if (isFull()) {
             System.out.println("Queue is full");
             return;
@@ -32,7 +40,7 @@ public class LinearQueue {
     }
 
     // Dequeue operation
-    public static void dequeue() {
+    public void dequeue() {
         if (isEmpty()) {
             System.out.println("Queue is empty");
             return;
@@ -46,7 +54,7 @@ public class LinearQueue {
     }
 
     // Display the queue
-    public static void display() {
+    public void display() {
         if (isEmpty()) {
             System.out.println("Queue is empty");
             return;
@@ -60,6 +68,11 @@ public class LinearQueue {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the size of the queue: ");
+        int size = scanner.nextInt();
+        LinearQueue queue = new LinearQueue(size);
+
         int choice, value;
         do {
             System.out.println("\nQueue Operations:");
@@ -73,13 +86,13 @@ public class LinearQueue {
                 case 1:
                     System.out.print("Enter value to enqueue: ");
                     value = scanner.nextInt();
-                    enqueue(value);
+                    queue.enqueue(value);
                     break;
                 case 2:
-                    dequeue();
+                    queue.dequeue();
                     break;
                 case 3:
-                    display();
+                    queue.display();
                     break;
                 case 4:
                     System.out.println("Exiting...");
