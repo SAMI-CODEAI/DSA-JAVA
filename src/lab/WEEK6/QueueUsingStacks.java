@@ -54,44 +54,49 @@ class MyQueue {
     public static void main(String[] args) {
         MyQueue queue = new MyQueue();
         Scanner scanner = new Scanner(System.in);
-        int choice, value;
-        do {
-            System.out.println("\nQueue Operations:");
-            System.out.println("1. Push");
-            System.out.println("2. Pop");
-            System.out.println("3. Peek");
-            System.out.println("4. Check if Empty");
-            System.out.println("5. Exit");
-            System.out.print("Enter your choice: ");
-            choice = scanner.nextInt();
-            switch (choice) {
-                case 1:
-                    System.out.print("Enter value to push: ");
-                    value = scanner.nextInt();
-                    queue.push(value);
-                    break;
-                case 2:
-                    value = queue.pop();
-                    if (value != -1) {
-                        System.out.println("Popped: " + value);
+        System.out.println("Enter commands separated by commas (e.g., push 1, pop, peek, empty, exit):");
+        String input = scanner.nextLine();
+        String[] commands = input.split(",");
+
+        for (String command : commands) {
+            String[] parts = command.trim().split(" ");
+            switch (parts[0].toLowerCase()) {
+                case "push":
+                    if (parts.length > 1) {
+                        try {
+                            int value = Integer.parseInt(parts[1]);
+                            queue.push(value);
+                            System.out.println(value + " pushed to queue.");
+                        } catch (NumberFormatException e) {
+                            System.out.println("Invalid value. Please enter a valid integer.");
+                        }
+                    } else {
+                        System.out.println("Please provide a value to push.");
                     }
                     break;
-                case 3:
-                    value = queue.peek();
-                    if (value != -1) {
-                        System.out.println("Front: " + value);
+                case "pop":
+                    int poppedValue = queue.pop();
+                    if (poppedValue != -1) {
+                        System.out.println("Popped: " + poppedValue);
                     }
                     break;
-                case 4:
+                case "peek":
+                    int frontValue = queue.peek();
+                    if (frontValue != -1) {
+                        System.out.println("Front: " + frontValue);
+                    }
+                    break;
+                case "empty":
                     System.out.println("Is queue empty? " + queue.empty());
                     break;
-                case 5:
+                case "exit":
                     System.out.println("Exiting...");
                     break;
                 default:
-                    System.out.println("Invalid choice, please try again.");
+                    System.out.println("Invalid command: " + command);
             }
-        } while (choice != 5);
+        }
+
         scanner.close();
     }
 }
