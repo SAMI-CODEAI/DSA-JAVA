@@ -3,15 +3,6 @@ package lab.WEEK7;
 import java.util.Scanner;
 import java.util.Stack;
 
-class ListNode4 {
-    int val;
-    ListNode next;
-
-    ListNode4(int x) {
-        val = x;
-        next = null;
-    }
-}
 
 public class PalindromeLinkedList {
 

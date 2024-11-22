@@ -2,23 +2,15 @@ package lab.WEEK7;
 
 import java.util.Scanner;
 
-class ListNode1 {
-    int val;
-    ListNode1 next;
 
-    ListNode1(int x) {
-        val = x;
-        next = null;
-    }
-}
 
 public class RemoveLinkedListElements {
-    public ListNode1 removeElements(ListNode1 head, int val) {
+    public ListNode removeElements(ListNode head, int val) {
         // Create a dummy node to handle edge cases smoothly
-        ListNode1 dummy = new ListNode1(0);
+        ListNode dummy = new ListNode(0);
         dummy.next = head;
 
-        ListNode1 current = dummy;
+        ListNode current = dummy;
 
         while (current.next != null) {
             if (current.next.val == val) {
@@ -38,12 +30,12 @@ public class RemoveLinkedListElements {
         String input = scanner.nextLine();
         String[] values = input.split(",");
 
-        ListNode1 head = null;
-        ListNode1 tail = null;
+        ListNode head = null;
+        ListNode tail = null;
 
         for (String value : values) {
             int val = Integer.parseInt(value.trim());
-            ListNode1 newNode = new ListNode1(val);
+            ListNode newNode = new ListNode(val);
             if (head == null) {
                 head = newNode;
                 tail = head;
@@ -65,8 +57,8 @@ public class RemoveLinkedListElements {
         scanner.close();
     }
 
-    public static void printList(ListNode1 head) {
-        ListNode1 current = head;
+    public static void printList(ListNode head) {
+        ListNode current = head;
         while (current != null) {
             System.out.print(current.val + " -> ");
             current = current.next;

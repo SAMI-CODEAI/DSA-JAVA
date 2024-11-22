@@ -2,16 +2,6 @@ package lab.WEEK7;
 
 import java.util.Scanner;
 
-class ListNode7 {
-    int val;
-    ListNode next;
-
-    ListNode7(int val) {
-        this.val = val;
-        this.next = null;
-    }
-}
-
 public class ConvertBinaryNumberinaLinkedListtoInteger {
 
     public static class Solution {

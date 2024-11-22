@@ -1,4 +1,6 @@
+package lab.WEEK7;
 import java.util.Scanner;
+
 
 class Node {
     String data;

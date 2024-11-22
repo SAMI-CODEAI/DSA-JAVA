@@ -2,15 +2,6 @@ package lab.WEEK7;
 
 import java.util.Scanner;
 
-class ListNode6 {
-    int val;
-    ListNode next;
-
-    ListNode6(int val) {
-        this.val = val;
-        this.next = null;
-    }
-}
 
 public class MiddleoftheLinkedList {
 

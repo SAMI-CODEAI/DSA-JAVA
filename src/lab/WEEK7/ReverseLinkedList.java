@@ -2,15 +2,6 @@ package lab.WEEK7;
 
 import java.util.Scanner;
 
-class ListNode3 {
-    int val;
-    ListNode next;
-
-    ListNode3(int val) {
-        this.val = val;
-        this.next = null;
-    }
-}
 
 public class ReverseLinkedList {
 
